@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Мой Блог</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Мой Блог</h1>
+            <div id="auth-buttons">
+                <button id="login-btn">Вход</button>
+                <button id="register-btn">Регистрация</button>
+            </div>
+            <div id="user-profile" class="hidden">
+                <span id="username-display"></span>
+                <button id="logout-btn">Выйти</button>
+                <button id="new-post-btn">Новый пост</button>
+            </div>
+        </header>
+
+        <div class="modal hidden" id="auth-modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modal-title">Вход</h2>
+                <form id="auth-form">
+                    <div id="name-field" class="hidden">
+                        <label for="name">Имя:</label>
+                        <input type="text" id="name" name="name" />
+                    </div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required />
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password" required />
+                    <button type="submit" id="auth-submit">Войти</button>
+                </form>
+                <p id="auth-switch">Нужно зарегистрироваться?</p>
+            </div>
+        </div>
+
+        <div class="modal hidden" id="post-modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Новый пост</h2>
+                <form id="post-form">
+                    <label for="post-title">Заголовок:</label>
+                    <input type="text" id="post-title" name="post-title" required />
+                    <label for="post-content">Содержание:</label>
+                    <textarea id="post-content" name="post-content" required></textarea>
+                    <label for="post-tags">Теги (через запятую):</label>
+                    <input type="text" id="post-tags" name="post-tags" />
+                    <label> <input type="checkbox" id="post-private" /> Только для подписчиков </label>
+                    <button type="submit" id="post-submit">Опубликовать</button>
+                </form>
+            </div>
+        </div>
+
+        <main>
+            <div class="sidebar">
+                <h3>Подписки</h3>
+                <ul id="subscriptions-list"></ul>
+                <div id="subscribe-section" class="hidden">
+                    <input type="text" id="subscribe-to" placeholder="Имя пользователя" />
+                    <button id="subscribe-btn">Подписаться</button>
+                </div>
+                <h3>Теги</h3>
+                <div id="tags-cloud"></div>
+            </div>
+            <div class="content">
+                <div id="posts-container"></div>
+            </div>
+        </main>
+
+        <script src="script.js"></script>
+    </body>
+</html>
